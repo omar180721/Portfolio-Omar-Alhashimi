@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Omar Alhashimi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Poppins for English) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Style for the animated skill bars */
+        .skill-bar-inner {
+            transition: width 1.5s ease-in-out;
+        }
+        /* Animation for sections fading in on scroll */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom gradient for hero section */
+        .hero-gradient {
+            background: radial-gradient(circle, rgba(13, 37, 63, 0.9) 0%, rgba(10, 25, 47, 1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg shadow-cyan-500/10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Omar </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#certs" class="hover:text-cyan-400 transition-colors">Certifications</a>
+                <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105">Contact Me</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="#about" class="block text-center py-3 px-4 hover:bg-slate-700">About</a>
+            <a href="#skills" class="block text-center py-3 px-4 hover:bg-slate-700">Skills</a>
+            <a href="#experience" class="block text-center py-3 px-4 hover:bg-slate-700">Experience</a>
+            <a href="#certs" class="block text-center py-3 px-4 hover:bg-slate-700">Certifications</a>
+            <a href="#contact" class="block text-center py-3 px-4 hover:bg-slate-700">Contact Me</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="h-[calc(100vh-72px)] hero-gradient flex items-center justify-center text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+            <div class="z-10 px-4 scroll-animate">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to My Digital World</h1>
+                <p class="text-lg md:text-2xl mb-2 text-gray-300">I'm <span class="text-cyan-400 font-bold">Omar  Alhashimi</span></p>
+                <p class="text-lg md:text-2xl text-gray-300">An Expert in <span id="typed-text" class="font-semibold text-white"></span></p>
+                <a href="#contact" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 shadow-lg shadow-cyan-500/30">Let's Collaborate</a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 bg-slate-800">
+            <div class="container mx-auto px-6 text-center scroll-animate">
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">About Me</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8 rounded"></div>
+                <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                    <img src="https://os180721.netlify.app/profile.302bc6e6.jpg" alt="Omar Alhashimi's Picture" class="w-48 h-48 rounded-full object-cover border-4 border-cyan-500 shadow-xl">
+                    <p class="text-lg text-gray-300 text-center md:text-left">
+                        A Technical Support Specialist with proven experience in the IT industry, passionate about providing effective technical solutions. I possess advanced skills in Network Administration, Technical Support, Windows Server, and Active Directory. As a graduate of University of the Cordilleras, I combine academic knowledge with practical experience to ensure system stability and security.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6 text-center scroll-animate">
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">Technical Skills</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
+                <div class="max-w-4xl mx-auto text-left space-y-12">
+
+                    <!-- Category: System & Server Administration -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">System & Server Administration</h3>
+                        <div class="space-y-5">
+                            <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">Windows Server Management</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="85%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">System Administration</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="85%"></div></div>
+                            </div>
+                             <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">Active Directory</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Networking -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">Networking</h3>
+                        <div class="space-y-5">
+                            <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">Network Administration</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Support & Troubleshooting -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">Support & Troubleshooting</h3>
+                        <div class="space-y-5">
+                            <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">Technical Support</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="95%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <h4 class="text-xl font-medium mb-2">Troubleshooting</h4>
+                                <div class="bg-slate-700 rounded-full h-4"><div class="skill-bar-inner bg-cyan-500 h-4 rounded-full" style="width: 0%;" data-level="95%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-slate-800">
+            <div class="container mx-auto px-6 scroll-animate">
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400 text-center">Work Experience</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
+                <div class="max-w-3xl mx-auto relative">
+                    <!-- Vertical timeline bar -->
+                    <div class="absolute left-4 md:left-1/2 top-2 -translate-x-1/2 h-[calc(100%-1rem)] w-0.5 bg-slate-600"></div>
+                    
+                    <!-- Timeline Item: solutions by stc -->
+                    <div class="mb-10 relative">
+                        <div class="md:flex items-center md:flex-row-reverse">
+                            <div class="w-full md:w-1/2 md:pl-8 text-left pl-10">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                    <p class="text-sm text-gray-400">Nov 2023 - Present</p>
+                                    <h3 class="text-xl font-bold mt-1">IT Support Specialist</h3>
+                                    <p class="text-cyan-400 font-semibold">Ismail Alhamrani Co.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 bg-cyan-500 rounded-full border-4 border-slate-800"></div>
+                    </div>
+                    
+                    <!-- Timeline Item: GISSAN -->
+                    <div class="mb-10 relative">
+                        <div class="md:flex items-center">
+                            <div class="w-full md:w-1/2 md:pr-8 text-left pl-10">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                    <p class="text-sm text-gray-400">July 2022 - Nov 2022</p>
+                                    <h3 class="text-xl font-bold mt-1">Network Technician</h3>
+                                    <p class="text-cyan-400 font-semibold">Alomgy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 bg-cyan-500 rounded-full border-4 border-slate-800"></div>
+                    </div>
+                    
+                    <!-- Timeline Item: MCIT -->
+                    <div class="relative">
+                         <div class="md:flex items-center md:flex-row-reverse">
+                            <div class="w-full md:w-1/2 md:pl-8 text-left pl-10">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                    <p class="text-sm text-gray-400">Aug 2021 - Dec 2021</p>
+                                    <h3 class="text-xl font-bold mt-1">Web Developer Intern</h3>
+                                    <p class="text-cyan-400 font-semibold">Bitshares Labs, Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 md:left-1/2 transform -translate-x-1/2 w-5 h-5 bg-cyan-500 rounded-full border-4 border-slate-800"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+         <!-- Certifications Section -->
+        <section id="certs" class="py-20">
+            <div class="container mx-auto px-6 text-center scroll-animate">
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">Professional Certifications</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Certificate Card -->
+                    <a href="https://drive.google.com/file/d/1h_F-1XVVKtorB88M41T5RWdA3sX2bGdJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
+                        <div class="text-5xl text-cyan-400 mb-4"><i class="fa-solid fa-award"></i></div>
+                        <h3 class="text-xl font-bold mb-2">CCNA: Cisco Certified Network Associate</h3>
+                        <p class="text-gray-400">Cisco</p>
+                    </a>
+                    <!-- Certificate Card -->
+                    <a href="https://drive.google.com/file/d/1c6KJZxCgE4ewx5B5gc3S6v2Ga0KVO4B0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
+                        <div class="text-5xl text-cyan-400 mb-4"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Professional Accreditation</h3>
+                        <p class="text-gray-400">Saudi Council of Engineers</p>
+                    </a>
+                    <!-- Certificate Card -->
+                    <a href="https://drive.google.com/file/d/100BtO6Cd7C2WMszBgpeH6ZZ4QxyyEnzS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
+                        <div class="text-5xl text-cyan-400 mb-4"><i class="fa-brands fa-google"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Google IT Support</h3>
+                        <p class="text-gray-400">Coursera</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Download Section -->
+        <section id="cv" class="py-20 bg-slate-800">
+            <div class="container mx-auto px-6 text-center scroll-animate">
+                 <h2 class="text-3xl font-bold mb-4 text-white">Interested in Learning More?</h2>
+                 <p class="text-gray-300 mb-8 max-w-xl mx-auto">You can download my full CV to see all my experiences and qualifications in detail.</p>
+                 <a href="https://drive.google.com/file/d/1WvYiAdbtXp0t7Uf4n9LVVVLJtk3Fwyhh/view?usp=sharing" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 shadow-lg shadow-cyan-500/30">
+                    <i class="fa-solid fa-download mr-2"></i>
+                    Download CV
+                </a>
+            </div>
+        </section>
+
+       <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 scroll-animate">
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400 text-center">Get In Touch</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
+            
+                <form id="contact-form" class="max-w-xl mx-auto">
+                    <input type="hidden" name="access_key" value="6d1ee15d-b564-4e2d-b25b-d63e87ac6954">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Name</label>
+                        <input type="text" id="name" name="name" class="bg-slate-700 border border-slate-600 text-gray-200 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Email</label>
+                        <input type="email" id="email" name="email" class="bg-slate-700 border border-slate-600 text-gray-200 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="example@email.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="bg-slate-700 border border-slate-600 text-gray-200 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors">Send Message</button>
+                    <div id="form-result" class="mt-4 text-center font-medium"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.linkedin.com/in/omar-alhashimi-62252519b/" target="_blank" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/omar180721" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/Os180721" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 | All Rights Reserved for <span class="font-bold">Omar Alhashimi</span></p>
+        </div>
+    </footer>
+
+
+    <!-- Typed.js for typing effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typed.js Initialization
+            new Typed('#typed-text', {
+                strings: ['Technical Support.', 'Network Administration.', 'Server Management.', 'Active Directory.'],
+                typeSpeed: 70,
+                backSpeed: 50,
+                backDelay: 2000,
+                loop: true,
+                smartBackspace: true
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animate skill bars specifically
+                        if(entry.target.id === 'skills') {
+                            const skillBars = entry.target.querySelectorAll('.skill-bar-inner');
+                            skillBars.forEach(bar => {
+                                setTimeout(() => { bar.style.width = bar.dataset.level; }, 200);
+                            });
+                        }
+
+                        // Stop observing after the animation has run once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections with the scroll-animate class
+            document.querySelectorAll('.scroll-animate').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
