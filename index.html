@@ -21,12 +21,13 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            background-color: #0f172a; /* bg-slate-900 */
+             /* Subtle background pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e293b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        /* Style for the animated skill bars */
         .skill-bar-inner {
             transition: width 1.5s ease-in-out;
         }
-        /* Animation for sections fading in on scroll */
         .scroll-animate {
             opacity: 0;
             transform: translateY(30px);
@@ -36,9 +37,25 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Custom gradient for hero section */
-        .hero-gradient {
-            background: radial-gradient(circle, rgba(13, 37, 63, 0.9) 0%, rgba(10, 25, 47, 1) 100%);
+        /* Network canvas background */
+        #network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .interactive-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
         }
     </style>
 </head>
@@ -71,9 +88,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="h-[calc(100vh-72px)] hero-gradient flex items-center justify-center text-center relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-            <div class="z-10 px-4 scroll-animate">
+        <section class="h-[calc(100vh-72px)] bg-slate-900 flex items-center justify-center text-center relative overflow-hidden">
+            <canvas id="network-canvas"></canvas>
+            <div class="hero-content px-4 scroll-animate">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to My Digital World</h1>
                 <p class="text-lg md:text-2xl mb-2 text-gray-300">I'm <span class="text-cyan-400 font-bold">Omar Alhashimi</span></p>
                 <p class="text-lg md:text-2xl text-gray-300">An Expert in <span id="typed-text" class="font-semibold text-white"></span></p>
@@ -82,7 +99,7 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="py-20 bg-slate-800">
+        <section id="about" class="py-20 bg-slate-800/80 backdrop-blur-sm">
             <div class="container mx-auto px-6 text-center scroll-animate">
                 <h2 class="text-3xl font-bold mb-2 text-cyan-400">About Me</h2>
                 <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8 rounded"></div>
@@ -104,7 +121,7 @@
 
                     <!-- Category: System & Server Administration -->
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">System & Server Administration</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2 flex items-center gap-3"><i class="fa-solid fa-server text-cyan-400"></i> System & Server Administration</h3>
                         <div class="space-y-5">
                             <div class="skill-item">
                                 <h4 class="text-xl font-medium mb-2">Windows Server Management</h4>
@@ -123,7 +140,7 @@
 
                     <!-- Category: Networking -->
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">Networking</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2 flex items-center gap-3"><i class="fa-solid fa-diagram-project text-cyan-400"></i> Networking</h3>
                         <div class="space-y-5">
                             <div class="skill-item">
                                 <h4 class="text-xl font-medium mb-2">Network Administration</h4>
@@ -134,7 +151,7 @@
 
                     <!-- Category: Support & Troubleshooting -->
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2">Support & Troubleshooting</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-white border-b-2 border-slate-700 pb-2 flex items-center gap-3"><i class="fa-solid fa-headset text-cyan-400"></i> Support & Troubleshooting</h3>
                         <div class="space-y-5">
                             <div class="skill-item">
                                 <h4 class="text-xl font-medium mb-2">Technical Support</h4>
@@ -152,7 +169,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20 bg-slate-800">
+        <section id="experience" class="py-20 bg-slate-800/80 backdrop-blur-sm">
             <div class="container mx-auto px-6 scroll-animate">
                 <h2 class="text-3xl font-bold mb-2 text-cyan-400 text-center">Work Experience</h2>
                 <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
@@ -164,7 +181,7 @@
                     <div class="mb-10 relative">
                         <div class="md:flex items-center md:flex-row-reverse">
                             <div class="w-full md:w-1/2 md:pl-8 text-left pl-10">
-                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg interactive-card">
                                     <p class="text-sm text-gray-400">Nov 2023 - Present</p>
                                     <h3 class="text-xl font-bold mt-1">IT Support Specialist</h3>
                                     <p class="text-cyan-400 font-semibold">Ismail Alhamrani Co.</p>
@@ -178,7 +195,7 @@
                     <div class="mb-10 relative">
                         <div class="md:flex items-center">
                             <div class="w-full md:w-1/2 md:pr-8 text-left pl-10">
-                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg interactive-card">
                                     <p class="text-sm text-gray-400">July 2022 - Nov 2022</p>
                                     <h3 class="text-xl font-bold mt-1">Network Technician</h3>
                                     <p class="text-cyan-400 font-semibold">Alomgy</p>
@@ -192,7 +209,7 @@
                     <div class="relative">
                          <div class="md:flex items-center md:flex-row-reverse">
                             <div class="w-full md:w-1/2 md:pl-8 text-left pl-10">
-                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
+                                <div class="bg-slate-700 p-6 rounded-lg shadow-lg interactive-card">
                                     <p class="text-sm text-gray-400">Aug 2021 - Dec 2021</p>
                                     <h3 class="text-xl font-bold mt-1">Web Developer Intern</h3>
                                     <p class="text-cyan-400 font-semibold">Bitshares Labs, Inc.</p>
@@ -213,19 +230,19 @@
                 <div class="w-24 h-1 bg-cyan-500 mx-auto mb-12 rounded"></div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Certificate Card -->
-                    <a href="https://drive.google.com/file/d/1h_F-1XVVKtorB88M41T5RWdA3sX2bGdJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
+                    <a href="https://drive.google.com/file/d/1h_F-1XVVKtorB88M41T5RWdA3sX2bGdJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center interactive-card">
                         <div class="text-5xl text-cyan-400 mb-4"><i class="fa-solid fa-award"></i></div>
                         <h3 class="text-xl font-bold mb-2">CCNA: Cisco Certified Network Associate</h3>
                         <p class="text-gray-400">Cisco</p>
                     </a>
                     <!-- Certificate Card -->
-                    <a href="https://drive.google.com/file/d/1c6KJZxCgE4ewx5B5gc3S6v2Ga0KVO4B0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
-                        <div class="text-5xl text-cyan-400 mb-4"><i class="fa-solid fa-network-wired"></i></div>
+                    <a href="https://drive.google.com/file/d/1c6KJZxCgE4ewx5B5gc3S6v2Ga0KVO4B0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center interactive-card">
+                        <div class="text-5xl text-cyan-400 mb-4"><i class="fa-solid fa-user-check"></i></div>
                         <h3 class="text-xl font-bold mb-2">Professional Accreditation</h3>
                         <p class="text-gray-400">Saudi Council of Engineers</p>
                     </a>
                     <!-- Certificate Card -->
-                    <a href="https://drive.google.com/file/d/100BtO6Cd7C2WMszBgpeH6ZZ4QxyyEnzS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center hover:bg-slate-600 transition-colors hover:-translate-y-2 transform">
+                    <a href="https://drive.google.com/file/d/100BtO6Cd7C2WMszBgpeH6ZZ4QxyyEnzS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-slate-700 rounded-xl p-6 flex flex-col items-center interactive-card">
                         <div class="text-5xl text-cyan-400 mb-4"><i class="fa-brands fa-google"></i></div>
                         <h3 class="text-xl font-bold mb-2">Google IT Support</h3>
                         <p class="text-gray-400">Coursera</p>
@@ -235,7 +252,7 @@
         </section>
 
         <!-- CV Download Section -->
-        <section id="cv" class="py-20 bg-slate-800">
+        <section id="cv" class="py-20 bg-slate-800/80 backdrop-blur-sm">
             <div class="container mx-auto px-6 text-center scroll-animate">
                  <h2 class="text-3xl font-bold mb-4 text-white">Interested in Learning More?</h2>
                  <p class="text-gray-300 mb-8 max-w-xl mx-auto">You can download my full CV to see all my experiences and qualifications in detail.</p>
@@ -291,6 +308,98 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Animated Network Background ---
+            const canvas = document.getElementById('network-canvas');
+            const ctx = canvas.getContext('2d');
+            const heroSection = canvas.parentElement;
+
+            let particlesArray;
+
+            function setCanvasSize() {
+                canvas.width = heroSection.offsetWidth;
+                canvas.height = heroSection.offsetHeight;
+            }
+
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.directionX = directionX;
+                    this.directionY = directionY;
+                    this.size = size;
+                    this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = 'rgba(0, 229, 255, 0.5)';
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) {
+                        this.directionX = -this.directionX;
+                    }
+                    if (this.y > canvas.height || this.y < 0) {
+                        this.directionY = -this.directionY;
+                    }
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                    this.draw();
+                }
+            }
+
+            function init() {
+                setCanvasSize();
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * .4) - .2;
+                    let directionY = (Math.random() * .4) - .2;
+                    let color = '#8C5523';
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                }
+            }
+
+            function connect() {
+                let opacityValue = 1;
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                            opacityValue = 1 - (distance / 20000);
+                            ctx.strokeStyle = 'rgba(0, 198, 221,' + opacityValue + ')';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+                connect();
+            }
+
+            window.addEventListener('resize', function() {
+                init();
+            });
+
+            init();
+            animate();
+            // --- End of Animated Network Background ---
+
+
             // Typed.js Initialization
             new Typed('#typed-text', {
                 strings: ['Technical Support.', 'Network Administration.', 'Server Management.', 'Active Directory.'],
@@ -308,7 +417,6 @@
                 mobileMenu.classList.toggle('hidden');
             });
             
-            // Close mobile menu when a link is clicked
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
@@ -327,21 +435,17 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         
-                        // Animate skill bars specifically
                         if(entry.target.id === 'skills') {
                             const skillBars = entry.target.querySelectorAll('.skill-bar-inner');
                             skillBars.forEach(bar => {
                                 setTimeout(() => { bar.style.width = bar.dataset.level; }, 200);
                             });
                         }
-
-                        // Stop observing after the animation has run once
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            // Observe all sections with the scroll-animate class
             document.querySelectorAll('.scroll-animate').forEach(section => {
                 observer.observe(section);
             });
@@ -354,7 +458,6 @@
                 e.preventDefault();
                 result.textContent = 'Sending...';
                 result.classList.remove('text-green-400', 'text-red-400');
-
                 const formData = new FormData(form);
                 const object = {};
                 formData.forEach((value, key) => {
@@ -377,13 +480,13 @@
                             result.classList.add('text-green-400');
                         } else {
                             console.log(response);
-                            result.textContent = json.message || "Something went wrong. Please double check your Access Key.";
+                            result.textContent = json.message || "Something went wrong.";
                             result.classList.add('text-red-400');
                         }
                     })
                     .catch(error => {
                         console.log(error);
-                        result.textContent = "Something went wrong! Check the console for details.";
+                        result.textContent = "Something went wrong!";
                         result.classList.add('text-red-400');
                     })
                     .then(function() {
